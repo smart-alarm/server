@@ -54,7 +54,10 @@ class UsersController < ApplicationController
 						format.json {
 							#puts authorized_user.inspect
 							#puts "json"
-							render json: authorized_user
+							response = Hash.new
+							response['status'] = "Login successful!"
+							response['user'] = authorized_user
+							render json: response
 						}
 					end
 				else
