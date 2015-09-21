@@ -5,6 +5,8 @@ The backend for Smart Alarm is a Rails application hosted on {heroku}[https://ww
 
 The site for our live server is: {http://smart-alarm-server.herokuapp.com}[http://smart-alarm-server.herokuapp.com]
 
+Server currently handles HTTP requests.
+
 Things you may want to cover:
 
 * Ruby version
