@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+	skip_before_action :verify_authenticity_token
+
 	def login
 		#render login.html.erb
 	end
@@ -11,8 +13,12 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
 		if @user.save
-			flash[:notice] = "User created! The user_id is #{@user.id}"
-			redirect_to(:root)
+			#flash[:notice] = "User created! The user_id is #{@user.id}"
+			#redirect_to(:root)
+			response = Hash.new
+			response['status'] = 'User created!'
+			response['user'] = @user
+			render json: response
 		else
 			render('new')
 		end
