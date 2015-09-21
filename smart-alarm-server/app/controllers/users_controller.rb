@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-	skip_before_action :verify_authenticity_token
+	#skip_before_action :verify_authenticity_token
 
 	def login
 		#render login.html.erb
@@ -45,21 +45,10 @@ class UsersController < ApplicationController
 			if user
 				authorized_user = user.authenticate(params[:password])
 				if authorized_user
-					respond_to do |format|
-						format.html {
-							flash[:notice] = "Login successful!"
-							#puts authorized_user.inspect
-							redirect_to(:root)
-						}
-						format.json {
-							#puts authorized_user.inspect
-							#puts "json"
-							response = Hash.new
-							response['status'] = "Login successful!"
-							response['user'] = authorized_user
-							render json: response
-						}
-					end
+						response = Hash.new
+						response['status'] = "Login successful!"
+						response['user'] = authorized_user
+						render json: response
 				else
 					respond_to do |format|
 						format.html {
