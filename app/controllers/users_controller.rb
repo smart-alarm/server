@@ -30,8 +30,12 @@ class UsersController < ApplicationController
 			if user
 				authorized_user = user.authenticate(params[:password])
 				if authorized_user
-					flash[:notice] = "Login successful!"
-					redirect_to(:root)
+					#flash[:notice] = "Login successful!"
+					#redirect_to(:root)
+					response = Hash.new
+					response['status'] = "Login successful!"
+					response['user'] = authorized_user
+					render json: response
 				else
 					flash[:notice] = "Invalid email/password."
 					redirect_to(:root)
