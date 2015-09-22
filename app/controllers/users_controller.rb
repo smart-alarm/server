@@ -20,7 +20,10 @@ class UsersController < ApplicationController
 			response['user'] = @user
 			render json: response
 		else
-			render('new')
+			#render('new')
+			response = Hash.new
+			response['status'] = "Failed to create user"
+			render json: response
 		end
 	end
 
@@ -37,13 +40,19 @@ class UsersController < ApplicationController
 					response['user'] = authorized_user
 					render json: response
 				else
-					flash[:notice] = "Invalid email/password."
-					redirect_to(:root)
+					#flash[:notice] = "Invalid email/password."
+					#redirect_to(:root)
+					response = Hash.new
+					response['status'] = "Invalid email/password"
+					render json: response
 				end
 			end
 		else
-			flash[:notice] = "Invalid email/password."
-			redirect_to(:root)
+			#flash[:notice] = "Invalid email/password."
+			#redirect_to(:root)
+			response = Hash.new
+			response['status'] = "Invalid request"
+			render json: response
 		end
 	end
 
