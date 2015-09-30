@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20150920205139) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "morning_routines", force: true do |t|
     t.integer  "user_id"
     t.integer  "breakfast",  default: 0, null: false
