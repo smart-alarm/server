@@ -26,7 +26,7 @@ Prerequisites:
 ```
 $ git clone https://github.com/smart-alarm/server.git
 $ cd smart-alarm-server/
-$ bundle install
+$ bundle install --without production
 $ rake db:migrate
 $ rails server
 ```
