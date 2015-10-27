@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 		else
 			#render('new')
 			response = Hash.new
-			response['status'] = "Failed to create user"
+			response['status'] = @user.errors.full_messages.first#"Failed to create user"
 			render json: response
 		end
 	end
