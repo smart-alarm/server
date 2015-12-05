@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :user_history_records
+
   match ':controller(/:action(/:id))', :via => [:get, :post]
 
   root 'users#login'

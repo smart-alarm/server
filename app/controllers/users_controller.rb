@@ -35,10 +35,18 @@ class UsersController < ApplicationController
 				if authorized_user
 					#flash[:notice] = "Login successful!"
 					#redirect_to(:root)
-					response = Hash.new
-					response['status'] = "Login successful!"
-					response['user'] = authorized_user
-					render json: response
+					respond_to do |format|
+						format.html {
+							session[:user_id] = authorized_user.id
+							redirect_to(:controller => 'user_history_records', :action => 'index')
+						}
+        		format.json {
+							response = Hash.new
+							response['status'] = "Login successful!"
+							response['user'] = authorized_user
+							render json: response
+						}
+					end
 				else
 					#flash[:notice] = "Invalid email/password."
 					#redirect_to(:root)

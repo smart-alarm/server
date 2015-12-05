@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 	has_secure_password
 
 	has_one :morning_routine
+	has_many :user_history_records
 
 	#Validators
 	validates :email, :presence => true, :uniqueness => true
