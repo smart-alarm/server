@@ -1,18 +1,24 @@
-<h1>Listing user_history_records</h1>
+<h1>Performance</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%= pie_chart UserHistoryRecord.group(:on_time).count, library: {title: "Smart Alarm Performance"} %>
 
-  <tbody>
-    <% @user_history_records.each do |user_history_record| %>
-      <tr>
-        <td><%= user_history_record.arrival %></td>
-        <td><%= user_history_record.on_time %></td>
-      </tr>
-    <% end %>
-  </tbody>
+<%= line_chart @percent_on_time_by_day, library: {title: "Smart Alarm Percent On-Time By Day"} %>
+
+<%= column_chart @group_by_user, library: {title: "Smart Alarm Performance by User"} %>
+
+<h2>Raw Data</h2>
+
+<table class="table table-bordered">
+  <tr>
+    <th>UUID</th>
+    <th>Arrival Time</th>
+    <th>On Time</th>
+  </tr>
+  <% @user_history_records.each do |user_history_record| %>
+  <tr>
+    <td><%= user_history_record.uuid %></td>
+    <td><%= user_history_record.arrival %></td>
+    <td><%= user_history_record.on_time %></td>
+  </tr>
+  <% end %>
 </table>

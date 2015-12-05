@@ -14,6 +14,8 @@ GEM
       activesupport (= 4.1.8)
       builder (~> 3.1)
       erubis (~> 2.7.0)
+    active_median (0.1.2)
+      activerecord
     activemodel (4.1.8)
       activesupport (= 4.1.8)
       builder (~> 3.1)
@@ -28,8 +30,15 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
+    autoprefixer-rails (5.1.11)
+      execjs
+      json
     bcrypt (3.1.10)
+    bootstrap-sass (3.3.4.1)
+      autoprefixer-rails (>= 5.0.0.1)
+      sass (>= 3.2.19)
     builder (3.2.2)
+    chartkick (1.4.1)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -39,6 +48,8 @@ GEM
     coffee-script-source (1.9.1.1)
     erubis (2.7.0)
     execjs (2.6.0)
+    groupdate (2.5.0)
+      activesupport (>= 3)
     hike (1.2.3)
     i18n (0.7.0)
     jbuilder (2.3.1)
@@ -109,8 +120,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_median
+  autoprefixer-rails
   bcrypt (~> 3.1.7)
+  bootstrap-sass
+  chartkick
   coffee-rails (~> 4.0.0)
+  groupdate
   jbuilder (~> 2.0)
   jquery-rails
   pg

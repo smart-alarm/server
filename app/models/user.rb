@@ -4,9 +4,6 @@ class User < ActiveRecord::Base
 	#password, password_confirmation, and password_digest fields and authenticate method
 	has_secure_password
 
-	has_one :morning_routine
-	has_many :user_history_records
-
 	#Validators
 	validates :email, :presence => true, :uniqueness => true
 

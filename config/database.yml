@@ -22,7 +22,7 @@ default: &default
   pool: 5
 
 development:
-  adapter: sqlite3
+  adapter: postgresql
   database: smart-alarm-server_development
 
   # The specified database role being used to connect to postgres.

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   match ':controller(/:action(/:id))', :via => [:get, :post]
 
-  root 'users#login'
+  root 'user_history_records#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
