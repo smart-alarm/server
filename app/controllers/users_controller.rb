@@ -1,30 +1,16 @@
 class UsersController < ApplicationController
 
-	skip_before_action :verify_authenticity_token
+	#skip_before_action :verify_authenticity_token
+	before_action :confirm_logged_in, :except => [:login, :authenticate, :logout]
 
 	def login
 		#render login.html.erb
 	end
 
-	def new
-		@user = User.new
-	end
-
-	def create
-		@user = User.new(user_params)
-		if @user.save
-			#flash[:notice] = "User created! The user_id is #{@user.id}"
-			#redirect_to(:root)
-			response = Hash.new
-			response['status'] = 'User created!'
-			response['user'] = @user
-			render json: response
-		else
-			#render('new')
-			response = Hash.new
-			response['status'] = @user.errors.full_messages.first#"Failed to create user"
-			render json: response
-		end
+	def logout
+    session[:user_id] = nil
+    flash[:notice] = "Logged out successfully."
+    redirect_to(:action => 'login')
 	end
 
 	def authenticate

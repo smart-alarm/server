@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151129123620) do
+ActiveRecord::Schema.define(version: 20151205200732) do
 
   create_table "morning_routines", force: true do |t|
     t.integer  "user_id"
@@ -24,11 +24,11 @@ ActiveRecord::Schema.define(version: 20151129123620) do
   end
 
   create_table "user_history_records", force: true do |t|
-    t.integer  "user_id"
     t.datetime "arrival"
     t.boolean  "on_time"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "uuid"
   end
 
   create_table "users", force: true do |t|
