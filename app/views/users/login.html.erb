@@ -1,5 +1,5 @@
 <div class="container">
-		<%= form_tag({:action => 'authenticate'}, {:class => 'form-signin'}) do %>
+	<%= form_tag({:action => 'authenticate'}, {:class => 'form-signin'}) do %>
 		<h1 class="form-sigin-heading">Log In</h1>
 		<%= label_tag(:email, nil, :class => 'sr-only') %>
 		<%= text_field_tag(:email, nil, :class => 'form-control',:placeholder => "Email") %>

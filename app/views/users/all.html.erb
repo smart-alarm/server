@@ -1,0 +1,26 @@
+<h2>Admins Users</h2>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Email</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  <% @users.each do |user| %>
+    <% unless user == @users.first or user == @users.second %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= link_to("Edit", {:controller => 'users', :action => 'edit', :id => user.id}) %></td>
+        <td><%= link_to("Delete", {:controller => 'users', :action => 'destroy', :id => user.id}) %></td>
+      </tr>
+    <% else %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= '-' %></td>
+        <td><%= '-' %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
+
+<%= link_to("Add an Admin", {:action => 'new'}, :class => 'btn btn-lg btn-primary') %>

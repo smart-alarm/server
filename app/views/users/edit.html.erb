@@ -1,0 +1,18 @@
+<%= error_messages_for(@user) %>
+
+<div class="container">
+	<%= form_for(:user, :url => {:action => 'update'}) do |f| %>
+		<h1 class="form-sigin-heading">Edit New Admin</h1>
+		<%= label_tag(:email, nil, :class => 'sr-only') %>
+		<%= f.text_field(:email, :class => 'form-control', :placeholder => 'Email') %>
+		
+		<%= label_tag(:old_password, nil, :class => "sr-only") %>
+		<%= password_field_tag(:old_password, nil, :class => 'form-control', :placeholder => "Old Password") %>
+
+		<%= label_tag(:password, nil, :class => "sr-only") %>
+		<%= f.password_field(:password, :class => 'form-control', :placeholder => "New Password") %>
+		<%= label_tag(:password_confirmation, nil, :class => 'sr-only') %>
+		<%= f.password_field(:password_confirmation, :class => 'form-control', :placeholder => "New Password Confirmation") %>
+		<%= submit_tag("Save", :class => "btn btn-lg btn-primary btn-block") %>
+	<% end %>
+</div>

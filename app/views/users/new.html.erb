@@ -1,17 +1,14 @@
-<h1>New User</h1>
+<%= error_messages_for(@user) %>
 
-<%= form_for(:user, :url => {:action => 'create'}) do |f| %>
-	<div class="form-group">
-		<td>Email</td>
-		<td><%= f.text_field(:email) %></td>
-	</div>
-	<div class="form-group">
-		<th>Password</th>
-		<td><%= f.password_field(:password) %></td>
-	</div>
-	<div class="form-group">
-		<th>Confirm Password</th>
-		<td><%= f.password_field(:password_confirmation) %></td>
-	</div>
-	<%= submit_tag("Create Account") %>
-<% end %>
+<div class="container">
+	<%= form_for(:user, :url => {:action => 'create'}) do |f| %>
+		<h1 class="form-sigin-heading">Create New Admin</h1>
+		<%= label_tag(:email, nil, :class => 'sr-only') %>
+		<%= f.text_field(:email, :class => 'form-control', :placeholder => 'Email') %>
+		<%= label_tag(:password, nil, :class => "sr-only") %>
+		<%= f.password_field(:password, :class => 'form-control', :placeholder => "Password") %>
+		<%= label_tag(:password_confirmation, nil, :class => 'sr-only') %>
+		<%= f.password_field(:password_confirmation, :class => 'form-control', :placeholder => "Password Confirmation") %>
+		<%= submit_tag("Create", :class => "btn btn-lg btn-primary btn-block") %>
+	<% end %>
+</div>
